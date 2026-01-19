@@ -4,13 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Projects() {
-  // Анимация появления
   const container = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
   const item = {
@@ -19,18 +15,17 @@ export default function Projects() {
   };
 
   return (
-    <main style={{ minHeight: '100vh', backgroundColor: 'black', color: 'white', padding: '40px 20px', fontFamily: 'Arial, sans-serif' }}>
+    <main style={{ minHeight: '100vh', backgroundColor: 'black', color: 'white', padding: '40px 20px', fontFamily: 'Arial, sans-serif', backgroundImage: 'radial-gradient(circle at top, #112211 0%, black 60%)' }}>
       
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
-        {/* Кнопка НАЗАД */}
         <Link href="/dashboard" style={{ textDecoration: 'none' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', color: '#888', marginBottom: '40px', cursor: 'pointer', transition: '0.2s' }}>
-            <span>←</span> Вернуться в центр
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', color: '#00ff88', marginBottom: '40px', cursor: 'pointer', transition: '0.2s', textShadow: '0 0 10px #00ff88' }}>
+            <span>←</span> Вернуться в меню
           </div>
         </Link>
 
-        <h1 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '10px', color: '#4ade80' }}>
+        <h1 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '10px', color: '#00ff88', textShadow: '0 0 15px #00ff88' }}>
           МОИ ПРОЕКТЫ
         </h1>
         <p style={{ color: '#888', marginBottom: '50px' }}>
@@ -50,23 +45,16 @@ export default function Projects() {
             <div style={imagePlaceholderStyle}>🖥️ СКРИНШОТ САЙТА</div>
             <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '10px' }}>
-                <h2 style={{ fontSize: '1.5rem', margin: 0, color: 'white' }}>Digital HQ 3D</h2>
+                <h2 style={projectTitle}>Digital HQ 3D</h2>
                 <span style={statusBadge}>Готово</span>
               </div>
-              
-              <p style={{ color: '#aaa', lineHeight: '1.5', fontSize: '0.95rem', flexGrow: 1 }}>
-                Мой личный сайт-портфолио. Написан на Next.js с использованием Three.js для 3D графики. Полностью интерактивный.
+              <p style={projectDesc}>
+                Мой личный сайт-портфолио. Написан на Next.js с использованием Three.js для 3D графики.
               </p>
-
-              {/* Теги */}
-              <div style={{ margin: '20px 0', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <span style={tagStyle}>React</span>
-                <span style={tagStyle}>Three.js</span>
-                <span style={tagStyle}>Next.js</span>
+              <div style={tagContainer}>
+                <span style={tagStyle}>React</span><span style={tagStyle}>Three.js</span><span style={tagStyle}>Next.js</span>
               </div>
-
-              {/* Кнопки ссылок */}
-              <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+              <div style={buttonContainer}>
                 <button style={btnPrimary}>Смотреть сайт</button>
                 <button style={btnSecondary}>GitHub</button>
               </div>
@@ -78,21 +66,16 @@ export default function Projects() {
             <div style={imagePlaceholderStyle}>🤖 БОТ</div>
             <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '10px' }}>
-                <h2 style={{ fontSize: '1.5rem', margin: 0, color: 'white' }}>AI Telegram Bot</h2>
-                <span style={statusBadge}>В работе</span>
+                <h2 style={projectTitle}>AI Telegram Bot</h2>
+                <span style={{...statusBadge, background: 'rgba(59, 130, 246, 0.2)', color: '#3b82f6', boxShadow: '0 0 10px rgba(59, 130, 246, 0.3)'}}>В работе</span>
               </div>
-
-              <p style={{ color: '#aaa', lineHeight: '1.5', fontSize: '0.95rem', flexGrow: 1 }}>
-                Умный бот для автоматизации. Подключен к OpenAI API, умеет отвечать на вопросы и планировать задачи.
+              <p style={projectDesc}>
+                Умный бот для автоматизации. Подключен к OpenAI API.
               </p>
-
-              <div style={{ margin: '20px 0', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <span style={tagStyle}>Python</span>
-                <span style={tagStyle}>Aiogram</span>
-                <span style={tagStyle}>API</span>
+              <div style={tagContainer}>
+                <span style={tagStyle}>Python</span><span style={tagStyle}>Aiogram</span><span style={tagStyle}>API</span>
               </div>
-
-              <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+              <div style={buttonContainer}>
                 <button style={btnPrimary}>Открыть бота</button>
                 <button style={btnSecondary}>GitHub</button>
               </div>
@@ -104,46 +87,18 @@ export default function Projects() {
             <div style={imagePlaceholderStyle}>🪙 КРИПТА</div>
             <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '10px' }}>
-                <h2 style={{ fontSize: '1.5rem', margin: 0, color: 'white' }}>Crypto Tracker</h2>
+                <h2 style={projectTitle}>Crypto Tracker</h2>
                 <span style={statusBadge}>v1.0</span>
               </div>
-
-              <p style={{ color: '#aaa', lineHeight: '1.5', fontSize: '0.95rem', flexGrow: 1 }}>
-                 Приложение для мониторинга курсов валют в реальном времени. Графики и уведомления.
+              <p style={projectDesc}>
+                 Мониторинг курсов валют в реальном времени.
               </p>
-
-              <div style={{ margin: '20px 0', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <span style={tagStyle}>Next.js</span>
-                <span style={tagStyle}>Tailwind</span>
+              <div style={tagContainer}>
+                <span style={tagStyle}>Next.js</span><span style={tagStyle}>Tailwind</span>
               </div>
-
-              <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+              <div style={buttonContainer}>
                  <button style={btnPrimary}>Демо</button>
                  <button style={btnSecondary}>GitHub</button>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* --- ПРОЕКТ 4 (НОВЫЙ) --- */}
-          <motion.div variants={item} style={cardStyle}>
-            <div style={imagePlaceholderStyle}>📱 MOBILE</div>
-            <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '10px' }}>
-                <h2 style={{ fontSize: '1.5rem', margin: 0, color: 'white' }}>Task App</h2>
-                <span style={{...statusBadge, background: '#f59e0b', color: 'black'}}>Идея</span>
-              </div>
-
-              <p style={{ color: '#aaa', lineHeight: '1.5', fontSize: '0.95rem', flexGrow: 1 }}>
-                 Мобильное приложение для управления личной эффективностью. 
-              </p>
-
-              <div style={{ margin: '20px 0', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <span style={tagStyle}>React Native</span>
-                <span style={tagStyle}>Firebase</span>
-              </div>
-
-              <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
-                 <button style={btnSecondary}>Скоро...</button>
               </div>
             </div>
           </motion.div>
@@ -154,66 +109,61 @@ export default function Projects() {
   );
 }
 
-// --- СТИЛИ ---
+// --- НЕОНОВЫЕ СТИЛИ ---
 const cardStyle = {
-  backgroundColor: '#111',
-  border: '1px solid #333',
+  backgroundColor: 'rgba(0,0,0,0.8)',
+  border: '1px solid #00ff88', // Неоновая рамка
   borderRadius: '16px',
   overflow: 'hidden',
   display: 'flex',
   flexDirection: 'column' as const,
   transition: 'transform 0.2s',
+  boxShadow: '0 0 20px rgba(0, 255, 136, 0.15)' // Свечение
 };
 
 const imagePlaceholderStyle = {
   height: '180px',
-  backgroundColor: '#222',
+  backgroundColor: '#050505',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: '#555',
+  color: '#00ff88',
   fontSize: '1.2rem',
-  borderBottom: '1px solid #333'
+  borderBottom: '1px solid #00ff88',
+  boxShadow: 'inset 0 0 20px rgba(0,255,136,0.1)'
 };
 
+const projectTitle = { fontSize: '1.5rem', margin: 0, color: 'white', textShadow: '0 0 5px rgba(255,255,255,0.5)' };
+const projectDesc = { color: '#aaa', lineHeight: '1.5', fontSize: '0.95rem', flexGrow: 1 };
+const tagContainer = { margin: '20px 0', display: 'flex', gap: '8px', flexWrap: 'wrap' as const };
+const buttonContainer = { display: 'flex', gap: '10px', marginTop: 'auto' };
+
 const tagStyle = {
-  background: 'rgba(255,255,255,0.1)', 
+  background: 'rgba(0,255,136,0.05)', 
   padding: '4px 12px', 
   borderRadius: '20px', 
   fontSize: '0.75rem', 
-  color: '#ccc',
-  border: '1px solid #444'
+  color: '#00ff88',
+  border: '1px solid #00ff88',
+  boxShadow: '0 0 5px rgba(0,255,136,0.2)'
 };
 
 const statusBadge = {
-  background: 'rgba(74, 222, 128, 0.2)',
-  color: '#4ade80',
+  background: 'rgba(0, 255, 136, 0.2)',
+  color: '#00ff88',
   padding: '4px 8px',
   borderRadius: '4px',
   fontSize: '0.7rem',
   fontWeight: 'bold',
-  textTransform: 'uppercase' as const
+  textTransform: 'uppercase' as const,
+  boxShadow: '0 0 10px rgba(0, 255, 136, 0.3)',
+  border: '1px solid #00ff88'
 };
 
 const btnPrimary = {
-  flex: 1,
-  padding: '10px',
-  background: 'white',
-  color: 'black',
-  border: 'none',
-  borderRadius: '8px',
-  fontSize: '0.9rem',
-  fontWeight: 'bold',
-  cursor: 'pointer',
+  flex: 1, padding: '10px', background: '#00ff88', color: 'black', border: 'none', borderRadius: '8px', fontSize: '0.9rem', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 0 15px rgba(0,255,136,0.5)'
 };
 
 const btnSecondary = {
-  flex: 1,
-  padding: '10px',
-  background: 'transparent',
-  color: 'white',
-  border: '1px solid #444',
-  borderRadius: '8px',
-  fontSize: '0.9rem',
-  cursor: 'pointer',
+  flex: 1, padding: '10px', background: 'transparent', color: '#00ff88', border: '1px solid #00ff88', borderRadius: '8px', fontSize: '0.9rem', cursor: 'pointer', boxShadow: '0 0 5px rgba(0,255,136,0.2)'
 };
