@@ -1,4 +1,4 @@
-import Link from "next/link"; // 👈 Важный импорт
+import Link from "next/link";
 import Hero3D from "./components/Hero3D";
 
 export default function Home() {
@@ -17,13 +17,12 @@ export default function Home() {
       fontFamily: 'Arial, sans-serif'
     }}>
       
-      {/* 3D фон */}
+      {/* 3D сфера на фоне */}
       <Hero3D />
 
-      {/* Контент (Z-Index 10 чтобы быть выше фона) */}
       <div style={{
         zIndex: 10,
-        position: 'relative', // 👈 Важно для клика
+        position: 'relative',
         textAlign: 'center',
         padding: '40px',
         borderRadius: '20px',
@@ -38,15 +37,18 @@ export default function Home() {
           WebkitBackgroundClip: 'text',
           color: 'transparent',
           marginBottom: '20px',
-          margin: 0
+          margin: 0,
+          textTransform: 'uppercase'
         }}>
-          DIGITAL HQ
+          SHOKRUZ_SP
         </h1>
+        
+        {/* Новое приветствие */}
         <p style={{ fontSize: '1.2rem', color: '#ccc', marginBottom: '30px' }}>
-          Система активирована. Добро пожаловать.
+          Добро пожаловать.
         </p>
         
-        {/* Кнопка-ссылка */}
+        {/* Кнопка "Посетить" */}
         <Link href="/dashboard">
           <button style={{
             padding: '15px 40px',
@@ -58,9 +60,10 @@ export default function Home() {
             borderRadius: '50px',
             cursor: 'pointer',
             boxShadow: '0 0 20px rgba(255,255,255,0.4)',
-            transition: 'transform 0.2s'
+            transition: 'transform 0.2s',
+            textTransform: 'uppercase'
           }}>
-            Войти в систему
+            ПОСЕТИТЬ
           </button>
         </Link>
       </div>
